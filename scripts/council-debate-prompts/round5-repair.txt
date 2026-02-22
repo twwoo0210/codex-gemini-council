@@ -1,0 +1,77 @@
+You are in **REPAIR MODE**.
+
+Context:
+- A 2-advisor council already converged on a plan (Round 3).
+- A 2-advisor audit/red-team reviewed that plan (Round 4).
+- At least one auditor concluded **REVISE** or **REJECT**.
+
+Your job: **integrate the audit feedback and produce a repaired, higher-quality convergence**.
+
+Hard rules:
+- Treat the audit reports as high-signal; do not dismiss them.
+- If auditors disagree, resolve conflicts explicitly.
+- Preserve what already works; change only what improves correctness, safety, and feasibility.
+- Produce a plan that is robust to edge cases and prompt-injection risks.
+- Output MUST be self-contained.
+
+=== ORIGINAL QUESTION ===
+{QUESTION}
+
+=== PREVIOUS CONVERGED PLAN (Round 3) ===
+{CONVERGED_PLAN}
+
+=== PREVIOUS CONVERGENCE PACKETS (Round 3) ===
+--- Advisor 1 (Codex) ---
+{CONVERGENCE_PACKET_1}
+
+--- Advisor 2 (Gemini) ---
+{CONVERGENCE_PACKET_2}
+
+=== AUDIT REPORTS (Round 4) ===
+--- Auditor 1 (Codex) ---
+{AUDIT_1}
+
+--- Auditor 2 (Gemini) ---
+{AUDIT_2}
+
+Now produce the repaired convergence with the following structure.
+
+## 1. AUDIT SYNTHESIS
+- Bullet the top 5–10 issues raised across audits.
+- Categorize each as: correctness, completeness, feasibility, safety/security, maintainability.
+
+## 2. PATCH STRATEGY
+- List the minimal set of changes that resolves the highest-risk issues.
+- For each change: rationale + expected side effects.
+
+## 3. CONVERGED PLAN
+Produce the updated final plan. Keep it actionable.
+- Overview
+- Key decisions
+- Implementation steps (ordered)
+- Rollout / test plan
+- Guardrails / safety checks
+
+## 4. DECISION TREE (UPDATED)
+Provide a compact decision tree for tradeoffs and fallbacks.
+
+## 5. VERIFICATION PLAN (UPDATED)
+Provide a practical verification plan (tests, checks, acceptance criteria).
+
+## 6. RESIDUAL RISKS
+List remaining risks (if any), with mitigations.
+
+## 7. CONVERGENCE PACKET
+15–30 lines. Must include:
+- Recommended option
+- Why it wins
+- Key assumptions
+- Risks + mitigations
+- Open questions (if any)
+- CONVERGENCE_SIGNAL: STRONG or WEAK
+
+## 8. CHANGE LOG
+List the exact deltas vs the previous converged plan.
+
+## 9. REPAIR VERDICT
+Final recommendation: APPROVE or REVISE

@@ -1,0 +1,16 @@
+# Gemini CLI policy example: deny all shell execution
+#
+# Place as:
+#   ~/.gemini/policies/deny-shell.toml
+# or
+#   <workspace>/.gemini/policies/deny-shell.toml
+#
+# Policy engine docs:
+#   https://geminicli.com/docs/reference/policy-engine/
+
+[[rule]]
+toolName = "run_shell_command"
+decision = "deny"
+priority = 900
+
+deny_message = "Shell execution is disabled by policy. Use Plan mode / read-only tools only."
