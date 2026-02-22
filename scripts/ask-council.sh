@@ -232,16 +232,16 @@ if [ "$COUNCIL_STDIN" = "1" ]; then
   printf '%s' "$PROMPT_CODEX"  > "$TMPDIR_COUNCIL/prompt_codex.txt"
   printf '%s' "$PROMPT_GEMINI" > "$TMPDIR_COUNCIL/prompt_gemini.txt"
 
-  "$SCRIPT_DIR/ask-codex.sh" --prompt-file "$TMPDIR_COUNCIL/prompt_codex.txt" "$TIMEOUT" > "$TMPDIR_COUNCIL/codex.txt" 2>"$TMPDIR_COUNCIL/codex.err" &
+  bash "$SCRIPT_DIR/ask-codex.sh" --prompt-file "$TMPDIR_COUNCIL/prompt_codex.txt" "$TIMEOUT" > "$TMPDIR_COUNCIL/codex.txt" 2>"$TMPDIR_COUNCIL/codex.err" &
   PID_CODEX=$!
 
-  "$SCRIPT_DIR/ask-gemini.sh" --prompt-file "$TMPDIR_COUNCIL/prompt_gemini.txt" "$TIMEOUT" > "$TMPDIR_COUNCIL/gemini.txt" 2>"$TMPDIR_COUNCIL/gemini.err" &
+  bash "$SCRIPT_DIR/ask-gemini.sh" --prompt-file "$TMPDIR_COUNCIL/prompt_gemini.txt" "$TIMEOUT" > "$TMPDIR_COUNCIL/gemini.txt" 2>"$TMPDIR_COUNCIL/gemini.err" &
   PID_GEMINI=$!
 else
-  "$SCRIPT_DIR/ask-codex.sh" "$PROMPT_CODEX" "$TIMEOUT" > "$TMPDIR_COUNCIL/codex.txt" 2>"$TMPDIR_COUNCIL/codex.err" &
+  bash "$SCRIPT_DIR/ask-codex.sh" "$PROMPT_CODEX" "$TIMEOUT" > "$TMPDIR_COUNCIL/codex.txt" 2>"$TMPDIR_COUNCIL/codex.err" &
   PID_CODEX=$!
 
-  "$SCRIPT_DIR/ask-gemini.sh" "$PROMPT_GEMINI" "$TIMEOUT" > "$TMPDIR_COUNCIL/gemini.txt" 2>"$TMPDIR_COUNCIL/gemini.err" &
+  bash "$SCRIPT_DIR/ask-gemini.sh" "$PROMPT_GEMINI" "$TIMEOUT" > "$TMPDIR_COUNCIL/gemini.txt" 2>"$TMPDIR_COUNCIL/gemini.err" &
   PID_GEMINI=$!
 fi
 

@@ -47,7 +47,7 @@ trap 'rm -rf "$TMPDIR_MR"' EXIT
 echo "=== MULTI-ROUND COUNCIL DELIBERATION (${MAX_ROUNDS} rounds) ===" >&2
 
 echo "--- Round 1/${MAX_ROUNDS}: Independent responses ---" >&2
-"$SCRIPT_DIR/ask-council.sh" "$PROMPT" "$TIMEOUT" > "$TMPDIR_MR/round1.txt" 2>"$TMPDIR_MR/round1.err"
+bash "$SCRIPT_DIR/ask-council.sh" "$PROMPT" "$TIMEOUT" > "$TMPDIR_MR/round1.txt" 2>"$TMPDIR_MR/round1.err"
 
 awk '/^=== CODEX/,/^=== GEMINI/' "$TMPDIR_MR/round1.txt" | sed '1d;$d' > "$TMPDIR_MR/r1_codex.txt" || true
 awk '/^=== GEMINI/,0' "$TMPDIR_MR/round1.txt" | sed '1d' > "$TMPDIR_MR/r1_gemini.txt" || true
@@ -80,7 +80,7 @@ INSTRUCTIONS FOR THIS ROUND:
 - Focus on resolving disagreements and strengthening the consensus
 - Provide your updated, refined response"
 
-  "$SCRIPT_DIR/ask-council.sh" "$FEEDBACK_PROMPT" "$TIMEOUT" > "$TMPDIR_MR/round${CURRENT_ROUND}.txt" 2>"$TMPDIR_MR/round${CURRENT_ROUND}.err"
+  bash "$SCRIPT_DIR/ask-council.sh" "$FEEDBACK_PROMPT" "$TIMEOUT" > "$TMPDIR_MR/round${CURRENT_ROUND}.txt" 2>"$TMPDIR_MR/round${CURRENT_ROUND}.err"
 
   PREV_ROUND_FILE="$TMPDIR_MR/round${CURRENT_ROUND}.txt"
   CURRENT_ROUND=$((CURRENT_ROUND + 1))

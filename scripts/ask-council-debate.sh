@@ -320,10 +320,10 @@ run_parallel() {
     disown "$spinner_pid" 2>/dev/null || true
   fi
 
-  "$SCRIPT_DIR/ask-codex.sh" --prompt-file "$codex_pf" "$tout" > "$round_dir/codex.txt" 2>"$round_dir/codex.err" &
+  bash "$SCRIPT_DIR/ask-codex.sh" --prompt-file "$codex_pf" "$tout" > "$round_dir/codex.txt" 2>"$round_dir/codex.err" &
   local pid_x=$!
 
-  "$SCRIPT_DIR/ask-gemini.sh" --prompt-file "$gemini_pf" "$tout" > "$round_dir/gemini.txt" 2>"$round_dir/gemini.err" &
+  bash "$SCRIPT_DIR/ask-gemini.sh" --prompt-file "$gemini_pf" "$tout" > "$round_dir/gemini.txt" 2>"$round_dir/gemini.err" &
   local pid_g=$!
 
   local ec_x=0 ec_g=0

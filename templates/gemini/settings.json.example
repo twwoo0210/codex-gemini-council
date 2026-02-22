@@ -1,15 +1,20 @@
 {
   "general": {
+    "defaultApprovalMode": "plan",
     "theme": "system",
     "sandbox": true
   },
+  "experimental": {
+    "plan": true
+  },
+  "model": {
+    "defaultModel": "gemini-3.1-pro-preview"
+  },
   "output": {
-    "defaultModel": "gemini-3.1-pro-preview",
+    "format": "text",
     "markdown": true
   },
-  "tools": {
-    "codeExecution": {
-      "enabled": false
-    }
+  "security": {
+    "disableYoloMode": true
   }
 }
