@@ -137,8 +137,22 @@ if [ -n "${CONTEXT_FILES:-}" ]; then
   TOTAL_BYTES=0
   CONTEXT_BLOCK=""
 
-  IFS=':' read -ra CTX_PATHS <<< "$CONTEXT_FILES"
+  CTX_DELIM="${CONTEXT_FILES_DELIM:-:}"
+  if [ -z "${CONTEXT_FILES_DELIM:-}" ]; then
+    case "${OSTYPE:-}" in
+      msys*|cygwin*|win32*)
+        if [[ "$CONTEXT_FILES" =~ [A-Za-z]:[\\/] ]]; then
+          CTX_DELIM=";"
+        fi
+        ;;
+    esac
+  fi
+
+  IFS="$CTX_DELIM" read -ra CTX_PATHS <<< "$CONTEXT_FILES"
   for CTX_PATH in "${CTX_PATHS[@]}"; do
+    CTX_PATH="$(echo "$CTX_PATH" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+    [ -z "$CTX_PATH" ] && continue
+
     if [[ "$CTX_PATH" == *".."* ]]; then
       echo "WARN: Rejecting context file with path traversal: $CTX_PATH" >&2
       continue
@@ -185,7 +199,7 @@ print(template.replace('{QUESTION}', question), end='')
   fi
 fi
 
-TMPDIR_COUNCIL=$(mktemp -d)
+TMPDIR_COUNCIL=$(mktemp -d "${TMPDIR:-/tmp}/council.XXXXXXXXXX")
 trap 'rm -rf "$TMPDIR_COUNCIL"' EXIT
 
 COUNCIL_LOG="${COUNCIL_LOG:-}"
