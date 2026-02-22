@@ -1,8 +1,15 @@
 {
-  "defaultModel": "gemini-3.1-pro-preview",
-  "theme": "system",
-  "sandbox": true,
-  "codeExecution": {
-    "enabled": false
+  "general": {
+    "theme": "system",
+    "sandbox": true
+  },
+  "output": {
+    "defaultModel": "gemini-3.1-pro-preview",
+    "markdown": true
+  },
+  "tools": {
+    "codeExecution": {
+      "enabled": false
+    }
   }
 }

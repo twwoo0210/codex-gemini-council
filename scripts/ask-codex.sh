@@ -68,14 +68,24 @@ fi
 MAX_RETRIES="${MAX_RETRIES:-1}"
 RETRY_DELAY="${RETRY_DELAY:-5}"
 
+TIMEOUT_CMD="timeout"
+if ! command -v timeout &>/dev/null && command -v gtimeout &>/dev/null; then
+  TIMEOUT_CMD="gtimeout"
+elif ! command -v timeout &>/dev/null; then
+  echo "ERROR: timeout command not found (install coreutils on macOS)" >&2
+  exit 1
+fi
+
 ATTEMPT=0
 EXIT_CODE=0
 while true; do
   EXIT_CODE=0
-  timeout "${TIMEOUT}" codex exec - \
+  $TIMEOUT_CMD "${TIMEOUT}" codex exec - \
     --model "$MODEL" \
     --skip-git-repo-check \
     --ephemeral \
+    --sandbox read-only \
+    --ask-for-approval never \
     < "$PROMPT_FILE" \
     2>"$TMPERR" || EXIT_CODE=$?
 
