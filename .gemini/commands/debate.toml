@@ -1,0 +1,15 @@
+description = "Run a Deep Dive Debate (4+2 rounds) using the Dual LLM Council."
+prompt = """
+The user has invoked the `/debate` command with the following query:
+<query>
+{{args}}
+</query>
+
+**INSTRUCTIONS:**
+1. Use the `run_shell_command` tool to execute:
+   `bash scripts/ask-council-debate.sh "{{args}}" 300`
+   *(If you are running this globally, adjust the path to point to your clone of the gemini-codex-council repository).*
+2. Wait for the execution to complete (this may take 5-20 minutes).
+3. Read the Final Output, specifically focusing on the **Decision Packet Evolution**, **Audit Verdicts**, and **Repaired Plans**.
+4. Synthesize the findings into a highly structured final recommendation for the user. Do NOT form your own independent opinion.
+"""

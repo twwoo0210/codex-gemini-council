@@ -17,7 +17,23 @@ your-project/
     └── ask-gemini.sh                  # Gemini CLI wrapper
 ```
 
-## Step 1: Add Council Rules to GEMINI.md
+## Step 1: Native Slash Commands (`/council` & `/debate`)
+
+Gemini CLI natively supports custom slash commands via `.toml` files. We have provided ready-to-use commands in `.gemini/commands/`.
+
+**To install globally (use anywhere):**
+Copy the `.toml` files to your global Gemini configuration and update the paths to point to this repository:
+```bash
+cp .gemini/commands/*.toml ~/.gemini/commands/
+# Then edit ~/.gemini/commands/*.toml to use absolute paths (e.g. bash /path/to/repo/scripts/ask-council.sh)
+```
+
+**Usage in Gemini CLI:**
+Once installed, simply type in any Gemini CLI session:
+- `/council How should I structure my React state?` -> Triggers the standard 2-model council.
+- `/debate What is the best database for a high-frequency trading app?` -> Triggers the 4+2 round deep dive debate.
+
+## Step 2: Add Council Rules to GEMINI.md (For Autonomous Usage)
 
 Add the following section to your project's `.gemini/GEMINI.md` (or equivalent system prompt injection file):
 
@@ -46,9 +62,9 @@ Every council response MUST follow this structure:
 \`\`\`
 ```
 
-## Step 2: Configure the /council Skill
+## Step 3: Configure the /council Skill (Optional)
 
-If you haven't already, ensure `.gemini/skills/council/SKILL.md` exists as defined in the repository.
+If you prefer using Agent Skills over Slash Commands, ensure `.gemini/skills/council/SKILL.md` exists as defined in the repository.
 
 ```markdown
 ---

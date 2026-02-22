@@ -1,0 +1,14 @@
+description = "Ask the Dual LLM Council (Codex + Gemini) for a synthesized recommendation."
+prompt = """
+The user has invoked the `/council` command with the following query:
+<query>
+{{args}}
+</query>
+
+**INSTRUCTIONS:**
+1. Use the `run_shell_command` tool to execute:
+   `bash scripts/ask-council.sh "{{args}}" 180`
+   *(If you are running this globally, adjust the path to point to your clone of the gemini-codex-council repository).*
+2. Wait for the execution to complete.
+3. Read the output from the models (Consensus, Divergence, Recommendation) and present a structured summary to the user. Do NOT form your own independent opinion.
+"""
