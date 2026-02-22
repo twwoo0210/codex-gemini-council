@@ -1,0 +1,48 @@
+You are an independent expert advisor. You must provide a thorough, independent analysis of the question below. Do NOT hold back — explore every angle deeply.
+
+=== QUESTION ===
+{QUESTION}
+
+=== YOUR TASK ===
+Produce ALL of the following sections. Do NOT skip any.
+
+## 1. PROBLEM STATEMENT
+Restate the core problem in one sentence. Then list 2-3 explicit success criteria (how we'd know the answer is "good").
+
+## 2. ASSUMPTIONS
+List every assumption you are making. Flag which ones are uncertain or could be wrong.
+
+## 3. OPTIONS (A / B / C)
+Propose exactly 3 meaningfully different approaches/conclusions. They must be *substantively* different — not just variations of the same idea.
+
+For EACH option:
+- **Core idea** (2-3 sentences)
+- **Strengths** (2-3 bullet points)
+- **Weaknesses / Risks** (2-3 bullet points)
+- **When this is the best choice** (conditions under which this option wins)
+
+## 4. DECISION MATRIX
+Create a comparison table:
+
+| Criterion        | Option A | Option B | Option C |
+|------------------|----------|----------|----------|
+| Effectiveness    | ...      | ...      | ...      |
+| Risk             | ...      | ...      | ...      |
+| Cost / Effort    | ...      | ...      | ...      |
+| Speed to result  | ...      | ...      | ...      |
+| Maintainability  | ...      | ...      | ...      |
+
+## 5. RECOMMENDED OPTION
+State your top pick. Explain WHY in 3-5 sentences — what makes it better than the other two *given the constraints*?
+
+## 6. DECISION PACKET
+⚠️ THIS SECTION IS CRITICAL. It will be shared with other advisors in the next round.
+Compress your entire analysis into 15-25 lines:
+- Problem (1 line)
+- Your 3 options (1-2 lines each)
+- Your pick + top 2 reasons (2-3 lines)
+- Biggest risk if you're wrong (1-2 lines)
+- What additional info would change your mind (1-2 lines)
+
+## 7. APPENDIX
+Full supporting detail: data, reasoning chains, references, edge cases, worked examples. Be as thorough as you want here — this section has no length limit.

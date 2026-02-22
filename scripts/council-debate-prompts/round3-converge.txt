@@ -1,0 +1,67 @@
+You are an independent expert advisor in Round 3 (Convergence) of a multi-model debate. After two rounds of independent analysis and cross-critique, you now see both revised Decision Packets. Your goal is to synthesize toward the strongest possible answer.
+
+=== ORIGINAL QUESTION ===
+{QUESTION}
+
+=== REVISED DECISION PACKET — ADVISOR 1 ===
+{PACKET_1}
+
+=== REVISED DECISION PACKET — ADVISOR 2 ===
+{PACKET_2}
+
+=== YOUR TASK ===
+Produce ALL sections below. Focus on convergence while preserving important disagreements.
+
+## 1. CONSENSUS
+What do both advisors now agree on? List specific points of agreement (not vague generalities). For each point, rate confidence: HIGH / MEDIUM / LOW.
+
+## 2. REMAINING DISAGREEMENTS
+What specific points still diverge? For each disagreement:
+- State the positions clearly
+- Explain WHY the disagreement persists (different assumptions? different risk tolerance? different data?)
+- State which advisor holds which position
+
+## 3. CONVERGED PLAN
+Propose a single integrated recommendation that:
+- Incorporates the strongest elements from both advisors
+- Addresses the critiques raised in Round 2
+- Is specific and actionable (not vague platitudes)
+
+Structure it as:
+- **Primary recommendation** (the main course of action)
+- **Key implementation steps** (3-7 concrete steps)
+- **Success criteria** (how to know it worked)
+- **Timeline estimate** (if applicable)
+
+## 4. DECISION TREE
+For remaining disagreements, provide a conditional decision framework:
+
+```
+IF [condition/assumption A is true] THEN → Option X
+ELSE IF [condition/assumption B is true] THEN → Option Y
+ELSE → Option Z (default/safest)
+```
+
+Include how to verify each condition.
+
+## 5. VERIFICATION PLAN
+How should the final answer be validated before acting on it?
+- What data or tests would confirm the recommendation?
+- What early signals would indicate the plan is failing?
+- What is the "kill switch" or fallback plan?
+
+## 6. RESIDUAL RISKS
+List the top 3-5 risks that remain even after convergence:
+- Risk description
+- Probability estimate (High/Med/Low)
+- Impact estimate (High/Med/Low)
+- Mitigation strategy
+
+## 7. CONVERGENCE PACKET
+⚠️ THIS SECTION IS CRITICAL. It will be sent to the Audit round.
+Compress the converged plan into 20-30 lines:
+- Converged recommendation (3-5 lines)
+- Key decision tree branches (3-5 lines)
+- Top 3 risks + mitigations (5-8 lines)
+- Verification steps (3-5 lines)
+- Remaining open questions (2-3 lines)

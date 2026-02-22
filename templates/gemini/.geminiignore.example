@@ -1,0 +1,7 @@
+# Gemini Ignore File
+.git/
+node_modules/
+.env
+*.key
+*.pem
+secrets/

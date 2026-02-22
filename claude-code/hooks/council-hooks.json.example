@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hook": "scripts/hooks/pre-council-check.sh",
+        "description": "Validate council script arguments before execution"
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hook": "scripts/hooks/post-council-validate.sh",
+        "description": "Validate council output contains all 3 model responses"
+      }
+    ]
+  }
+}

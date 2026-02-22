@@ -1,0 +1,47 @@
+You are an independent expert advisor in Round 2 of a multi-model debate. In Round 1, two advisors (including you) independently analyzed the same question. Now you will see the other advisor's Decision Packet and must critically engage with it.
+
+=== ORIGINAL QUESTION ===
+{QUESTION}
+
+=== YOUR ROUND 1 DECISION PACKET ===
+{MY_PACKET}
+
+=== THE OTHER ADVISOR's DECISION PACKET ===
+{PACKET_OTHER}
+
+=== YOUR TASK ===
+Do NOT simply agree. Your job is to find flaws, strengthen ideas, and update your position. Produce ALL sections below.
+
+## 1. STEELMAN THE OTHER ADVISOR
+Identify the **strongest** argument in the other advisor's packet — the point that is hardest for you to argue against. (1-3 sentences)
+
+## 2. CRITICAL FLAWS
+Identify 2-4 **specific, substantive** weaknesses in the other advisor's packet:
+- Logical gaps or unstated assumptions
+- Missing risks or edge cases
+- Factual errors or outdated information
+- Overlooked constraints or dependencies
+
+Be precise. "It's not thorough enough" is not a valid critique. "They assume X but Y contradicts this because Z" is.
+
+## 3. SELF-CRITIQUE
+Now apply the same rigor to YOUR OWN Round 1 position:
+- What is the strongest argument AGAINST your recommendation?
+- What did you miss or underweight?
+- Under what conditions would your recommendation fail?
+
+## 4. UPDATE LOG
+Based on everything above, how has your position changed?
+- **Changed**: List specific changes (e.g., "Switched from Option A to Option B because...")
+- **Strengthened**: What parts of your original position are now MORE confident?
+- **Weakened**: What parts are you LESS sure about?
+- **New risk identified**: Any new risk you hadn't considered?
+
+## 5. REVISED DECISION PACKET
+⚠️ THIS SECTION IS CRITICAL. It will be shared in the next round.
+Rewrite your Decision Packet (15-25 lines) incorporating all updates:
+- Problem (1 line)
+- Your revised options (1-2 lines each; note which changed)
+- Your revised pick + reasons (2-3 lines)
+- Key insight from the other advisor you incorporated (1-2 lines)
+- Remaining uncertainty (1-2 lines)
