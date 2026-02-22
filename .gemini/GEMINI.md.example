@@ -1,0 +1,65 @@
+# GEMINI.md — Dual LLM Council Section
+
+Add the following section to your project's `GEMINI.md` file to enable
+the dual council (Codex + Gemini) as the default behavior for substantive responses.
+
+---
+
+## Dual LLM Council (MANDATORY — Default Behavior)
+
+Two frontier models collaborate on EVERY substantive response, each running as an independent session:
+- **GPT-5.3-Codex** — via `codex exec`, xhigh reasoning
+- **Gemini 3.1 Pro** — via `gemini`, headless mode
+
+The current Gemini session acts as a **pure synthesizer** — it does NOT form its own opinion, but combines the 2 independent responses.
+
+### Invocation (REQUIRED for every substantive response)
+```bash
+bash "scripts/ask-council.sh" "<same question as user asked>" 180
+```
+This dispatches the question to both models (Codex, Gemini) in parallel as independent sessions.
+
+### `COUNCIL_MODE` (Team Deliberation)
+
+| Mode | Behavior |
+|---|---|
+| `team` (default) | Each model runs a 4-phase internal deliberation (Researcher → Analyst → Critic → Team Conclusion) via structured prompt template |
+| `fast` | Each model returns a single direct response (original behavior) |
+
+```bash
+# Use fast mode for quicker, simpler queries
+COUNCIL_MODE=fast bash "scripts/ask-council.sh" "<question>" 180
+```
+
+In `team` mode, synthesize primarily from each model's **Phase 4 (Team Conclusion)**.
+
+### Output Format (REQUIRED)
+Every council response MUST follow this structure:
+```
+## Dual Council Synthesis (GPT-5.3 + Gemini 3.1 Pro)
+### Consensus — where both agree
+### Divergence — where they disagree (explain each position)
+### Recommendation — synthesized final answer
+<details><summary>GPT-5.3 Raw</summary>...</details>
+<details><summary>Gemini 3.1 Pro Raw</summary>...</details>
+```
+
+### When to SKIP council (exhaustive list)
+- File read/write/edit operations
+- Git commands (commit, push, status)
+- Simple yes/no confirmations
+- Tool configuration and setup tasks
+
+### When to ALWAYS run council
+- Any question, opinion, analysis, or recommendation
+- Architecture/design decisions
+- Code review, debugging strategy
+- Planning (including Plan mode)
+- Research and comparison tasks
+
+### Subagent Context Injection
+When spawning ANY Task subagent for substantive work, prepend this to the prompt:
+> "IMPORTANT: You have access to external AI models via Bash. For substantive analysis, run: bash \"scripts/ask-council.sh\" \"<question>\" 180 — this dispatches to Codex and Gemini as independent sessions. Then synthesize both responses (do NOT form your own opinion)."
+
+### Commands
+- `/council` -> `.gemini/skills/council/SKILL.md`

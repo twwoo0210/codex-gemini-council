@@ -31,7 +31,7 @@ Set `COUNCIL_MODE=fast` to use the original single-response mode.
 1. Take the user's question/task as-is.
 2. Run both models in parallel via Bash:
    ```bash
-   bash "<YOUR_PROJECT_ROOT>/scripts/ask-council.sh" "<question>" 180
+   bash "scripts/ask-council.sh" "<question>" 180
    ```
    The script automatically applies the team prompt template when `COUNCIL_MODE=team` (default).
 3. Parse the structured output (`=== CODEX RESPONSE ===`, `=== GEMINI RESPONSE ===`).
@@ -44,7 +44,7 @@ Set `COUNCIL_MODE=fast` to use the original single-response mode.
 For hard problems requiring maximum quality, use the debate script instead:
 
 ```bash
-bash "<YOUR_PROJECT_ROOT>/scripts/ask-council-debate.sh" "<question>" 300
+bash "scripts/ask-council-debate.sh" "<question>" 300
 ```
 
 ### Debate Synthesis Behavior
