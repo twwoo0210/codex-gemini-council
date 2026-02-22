@@ -226,7 +226,7 @@ print(template.replace('{QUESTION}', question), end='')
   fi
 fi
 
-COUNCIL_STDIN="${COUNCIL_STDIN:-0}"
+COUNCIL_STDIN="${COUNCIL_STDIN:-1}"
 
 if [ "$COUNCIL_STDIN" = "1" ]; then
   printf '%s' "$PROMPT_CODEX"  > "$TMPDIR_COUNCIL/prompt_codex.txt"
@@ -273,4 +273,8 @@ if [ $EC_GEMINI -eq 0 ]; then
   cat "$TMPDIR_COUNCIL/gemini.txt"
 else
   echo "[FAILED] $(cat "$TMPDIR_COUNCIL/gemini.err" 2>/dev/null)"
+fi
+
+if [ $EC_CODEX -ne 0 ] && [ $EC_GEMINI -ne 0 ]; then
+  exit 1
 fi

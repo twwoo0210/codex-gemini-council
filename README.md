@@ -73,6 +73,9 @@ COUNCIL_MODE=fast bash scripts/ask-council.sh "your question" 180
 
 ### Prerequisites
 
+- **OS Environment**:
+  - **macOS**: Requires `coreutils` for timeout fallback (`brew install coreutils`).
+  - **Windows**: WSL2 or Git Bash is required. Native PowerShell is not fully supported.
 - **Bash** (Git Bash on Windows, native on macOS/Linux)
 - **Node.js** >= 18
 - **Codex CLI** (`npm install -g @openai/codex`)
@@ -134,7 +137,7 @@ Full unedited response from Gemini 3.1 Pro
 
 ### Deep Dive Debate (최상 품질 모드)
 
-For hard problems where quality matters more than speed, use the adversarial debate mode. This runs a structured 4-round process where models independently analyze, cross-critique each other, converge to a plan, and then red-team the result.
+For hard problems where quality matters more than speed, use the adversarial debate mode. This runs a structured 4+2 round process where models independently analyze, cross-critique each other, converge to a plan, and then red-team the result. If issues are found, an automated repair and re-audit loop is triggered.
 
 ```bash
 bash scripts/ask-council-debate.sh "Should we migrate from monolith to microservices?" 300
@@ -148,6 +151,8 @@ bash scripts/ask-council-debate.sh "Should we migrate from monolith to microserv
 | **Round 2** | Each model sees the other's Decision Packet. Must steelman, attack, self-critique, then revise | Revised Decision Packet |
 | **Round 3** | All revised packets shared. Models produce converged plan + decision tree | Convergence Packet |
 | **Round 4** | The converged plan is red-teamed: find every flaw, missing assumption, failure mode | Audit Verdict |
+| **Round 5** | (Auto-triggered if needed) Models repair the converged plan based on the Audit Verdict | Repaired Plan |
+| **Round 6** | (Auto-triggered if needed) The repaired plan is re-audited | Re-Audit Verdict |
 
 ---
 

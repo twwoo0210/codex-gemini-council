@@ -435,6 +435,7 @@ if [ "$COUNCIL_EARLY_EXIT" = "true" ]; then
     # Create minimal Round 3 artifacts from Round 2 packets
     for model in codex gemini; do
       cp "$WORKDIR/round2/packet_${model}.txt" "$WORKDIR/round3/conv_${model}.txt"
+      echo "[EARLY EXIT: Converged in Round 2. See Round 2 output.]" > "$WORKDIR/round3/${model}.txt"
     done
     {
       echo "=== Converged Plan from Advisor 1 (Codex) ==="
